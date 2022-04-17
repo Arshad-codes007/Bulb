@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Light Switch</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0px;
+        padding: 0px;
+      }
+      .center {
+        display: block;
+        margin: auto;
+        /* width: 30vh; */
+        width: 20rem;
+      }
+      .btn {
+        padding: 15px 10px;
+        width: 7rem;
+        background-color: rgb(52, 180, 52);
+        border: none;
+        border-radius: 2rem;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+      .btn:hover {
+        background-color: rgba(60, 60, 216, 0.897);
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <!-- Initial state of bulb will be off -->
+
+    <img
+      id="bulbImg"
+      class="center"
+      src="./img/bulbOff.jpg"
+      alt="Bulb is Off"
+    />
+    <button id="switchBtn" class="center btn">Turn On</button>
+
+    <script>
+      let bulb = document.getElementById("bulbImg");
+      let btn = document.getElementById("switchBtn");
+      let body = document.getElementById("body");
+
+      btn.addEventListener("click", switchBulb);
+
+      // Here e parameter in switchBulb function is not compulsory
+      function switchBulb(e) {
+        if (btn.textContent.includes("On")) {
+          bulb.src = "./img/bulbOn.jpg";
+          bulb.alt = "Bulb is On";
+          btn.textContent = "Turn Off";
+        } else {
+          bulb.src = "./img/bulbOff.jpg";
+          bulb.alt = "Bulb is Off";
+          btn.textContent = "Turn On";
+        }
+      }
+
+      // Alternatively can also use strict equals in if condition instead of includes function
+      // function switchBulb() {
+      //   if (btn.textContent === "Turn On") {
+      //     bulb.src = "./img/bulbOn.jpg";
+      //     bulb.alt = "Bulb is On";
+      //     btn.textContent = "Turn Off";
+      //   } else {
+      //     bulb.src = "./img/bulbOff.jpg";
+      //     bulb.alt = "Bulb is Off";
+      //     btn.textContent = "Turn On";
+      //   }
+      // }
+    </script>
+  </body>
+</html>
